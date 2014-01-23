@@ -84,19 +84,19 @@ namespace Wistia.Core
         }
         #endregion
         
-        protected Task DeleteRequest(string p, int projectId)
+        protected Task DeleteRequest(string path, params object[] args)
         {
             // TODO: Implement this method
             throw new NotImplementedException();
         }
 
-        protected Task PutRequest<T, T1>(T project, string p, string hashedId)
+        protected Task PutRequest<T, T1>(T item, string path, params object[] args)
         {
             // TODO: Implement this method
             throw new NotImplementedException();
         }
 
-        protected Task<T> PostRequest<T, T1>(T project, string p)
+        protected Task<T> PostRequest<T, T1>(T item, string path)
         {
             // TODO: Implement this method
             throw new NotImplementedException();

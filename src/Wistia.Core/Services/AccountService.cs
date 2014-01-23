@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Wistia.Core.Models;
 
-namespace Wistia.Core.Services
+namespace Wistia.Core
 {
     public class AccountService : WistiaClientBase
     {

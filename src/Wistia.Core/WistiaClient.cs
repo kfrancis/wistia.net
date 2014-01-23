@@ -31,7 +31,7 @@ using System.Text;
 using PortableRest;
 using System;
 using System.Threading.Tasks;
-using Wistia.Core.Services;
+using Wistia.Core;
 using Wistia.Core.Models;
 
 namespace Wistia.Core
@@ -40,13 +40,26 @@ namespace Wistia.Core
     {
         public WistiaClient(string apiKey)
         {
+            if (string.IsNullOrWhiteSpace(apiKey)) throw new ArgumentNullException(apiKey);
+
             this.Account = new AccountService(apiKey);
             this.Projects = new ProjectService(apiKey);
+            this.Sharings = new SharingService(apiKey);
         }
 
         #region Accessors
+        /// <summary>
+        /// 
+        /// </summary>
         public AccountService Account { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public ProjectService Projects { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public SharingService Sharings { get; private set; }
         #endregion
     }
 }

@@ -47,7 +47,9 @@
     <Compile Include="Models\SocialBar.cs" />
     <Compile Include="Models\Thumbnail.cs" />
     <Compile Include="IWistiaDataClient.cs" />
+    <Compile Include="IWistiaApiEndpoint.cs" />
     <Compile Include="Services\ProjectService.cs" />
+    <Compile Include="Services\SharingService.cs" />
     <Compile Include="WistiaClientBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WistiaClient.cs" />

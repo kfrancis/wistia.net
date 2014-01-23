@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Wistia.Core.Models;
 
-namespace Wistia.Core.Services
+namespace Wistia.Core
 {
-    public class ProjectService : WistiaClientBase
+    public class ProjectService : WistiaClientBase, IWistiaApiEndpoint<Project>
     {
         public ProjectService(string apiKey) : base(apiKey)
         {
@@ -48,7 +48,7 @@ namespace Wistia.Core.Services
         /// Delete method for projects
         /// </summary>
         /// <param name="projectId">The projectId to delete</param>
-        public async Task Delete(int projectId)
+        public async Task Delete(string projectId)
         {
             await DeleteRequest("/projects/{0}", projectId);
         }

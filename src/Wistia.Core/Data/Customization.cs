@@ -34,6 +34,11 @@ using System.Text;
 
 namespace Wistia.Core.Data
 {
+    /// <summary>
+    /// The Customize API lets you configure each video in your account with specific customizations. 
+    /// These customizations will apply to your video both in your account, and wherever you embed it.
+    /// http://wistia.com/doc/data-api#customizations
+    /// </summary>
     public class Customization
     {
         public string version { get; set; }

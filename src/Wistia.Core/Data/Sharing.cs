@@ -1,6 +1,6 @@
 ﻿#region License, Terms and Conditions
 //
-// ProjectSharing.cs
+// Sharing.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -35,9 +35,10 @@ using System.Text;
 namespace Wistia.Core.Data
 {
     /// <summary>
+    /// A sharing is an object that links either a contact or a contact group to a project, including information about the contacts' permissions to that project.
     /// http://wistia.com/doc/data-api#project_sharings
     /// </summary>
-    public class ProjectSharing
+    public class Sharing
     {
         public int id { get; set; }
         public bool isAdmin { get; set; }

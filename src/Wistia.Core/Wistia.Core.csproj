@@ -40,9 +40,10 @@
     <Compile Include="Data\Plugin.cs" />
     <Compile Include="Data\Project.cs" />
     <Compile Include="Data\ShareContact.cs" />
-    <Compile Include="Data\ProjectSharing.cs" />
+    <Compile Include="Data\Sharing.cs" />
     <Compile Include="Data\SocialBar.cs" />
     <Compile Include="Data\Thumbnail.cs" />
+    <Compile Include="IWistiaDataClient.cs" />
     <Compile Include="WistiaClientBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WistiaDataClient.cs" />

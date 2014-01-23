@@ -35,6 +35,7 @@ using System.Text;
 namespace Wistia.Core.Data
 {
     /// <summary>
+    /// Projects are the main organizational objects within Wistia. Media must be stored within Projects.
     /// http://wistia.com/doc/data-api#projects
     /// </summary>
     public class Project

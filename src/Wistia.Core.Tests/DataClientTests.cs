@@ -9,7 +9,7 @@ namespace Wistia.Core.Tests
     [TestClass]
     public class DataClientTests
     {
-        private static WistiaDataClient _client;
+        private static IWistiaDataClient _client;
         private static string _apiKey;
 
         public TestContext TestContext { get; set; }
@@ -19,11 +19,10 @@ namespace Wistia.Core.Tests
         {
             _apiKey = ConfigurationManager.AppSettings["ApiKey"];
             _client = new WistiaDataClient(_apiKey);
-
         }
 
         [TestMethod]
-        public async Task CanConnect()
+        public async Task CanGetAccountDetails()
         {
             // Act
             var result = await _client.GetAccount();

@@ -26,22 +26,30 @@
 // DEALINGS IN THE SOFTWARE.
 //
 #endregion
+using System.Net.Http;
+using PortableRest;
 using System;
 using System.Threading.Tasks;
 using Wistia.Core.Data;
 
 namespace Wistia.Core
 {
-    public class WistiaDataClient : WistiaClientBase
+    public class WistiaDataClient : WistiaClientBase, IWistiaDataClient
     {
         public WistiaDataClient(string apiKey) : base(apiKey)
         {
         }
 
-        public Task<Account> GetAccount()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Account> GetAccount()
         {
-            // TODO: Implement this method
-            throw new NotImplementedException();
+            var request = new RestRequest("account", HttpMethod.Get) { ContentType = ContentTypes.Json };
+            request.AddQueryString("$format", "json");
+            request.AddQueryString("key", ApiKey);
+            return await ExecuteAsync<Account>(request);
         }
     }
 }

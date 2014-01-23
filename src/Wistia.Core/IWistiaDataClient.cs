@@ -1,7 +1,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using PortableRest;
-using Wistia.Core.Data;
+using Wistia.Core.Models;
 
 namespace Wistia.Core
 {

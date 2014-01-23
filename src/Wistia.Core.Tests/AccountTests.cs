@@ -1,31 +1,33 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Wistia.Core.Data;
+using Wistia.Core.Models;
 
 namespace Wistia.Core.Tests
 {
     [TestClass]
-    public class DataClientTests
+    public class AccountTests
     {
-        private static IWistiaDataClient _client;
+        private static WistiaClient _client;
         private static string _apiKey;
 
         public TestContext TestContext { get; set; }
 
         [ClassInitialize]
-        public static void WistiaDataClientTests(TestContext context)
+        public static void AccountTestsInit(TestContext context)
         {
             _apiKey = ConfigurationManager.AppSettings["ApiKey"];
-            _client = new WistiaDataClient(_apiKey);
+            _client = new WistiaClient(_apiKey);
         }
 
         [TestMethod]
         public async Task CanGetAccountDetails()
         {
             // Act
-            var result = await _client.GetAccount();
+            var result = await _client.Account.Get();
 
             // Assert
             Assert.IsNotNull(result);

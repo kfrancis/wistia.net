@@ -1,6 +1,6 @@
 ﻿#region License, Terms and Conditions
 //
-// Media.cs
+// Sharing.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -32,21 +32,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Wistia.Core.Data
+namespace Wistia.Core.Models
 {
-    public class Media
+    /// <summary>
+    /// A sharing is an object that links either a contact or a contact group to a project, including information about the contacts' permissions to that project.
+    /// http://wistia.com/doc/data-api#project_sharings
+    /// </summary>
+    public class Sharing
     {
-        public DateTime created { get; set; }
-        public string description { get; set; }
-        public double duration { get; set; }
-        public string hashed_id { get; set; }
         public int id { get; set; }
-        public string name { get; set; }
-        public double progress { get; set; }
-        public string status { get; set; }
-        public Thumbnail thumbnail { get; set; }
-        public string type { get; set; }
-        public DateTime updated { get; set; }
-        public List<Asset> assets { get; set; }
+        public bool isAdmin { get; set; }
+        public bool canShare { get; set; }
+        public bool canDownload { get; set; }
+        public bool canUpload { get; set; }
+        public ShareContact share { get; set; }
+        public Project project { get; set; }
     }
 }

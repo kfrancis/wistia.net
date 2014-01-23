@@ -1,6 +1,6 @@
 ﻿#region License, Terms and Conditions
 //
-// Thumbnail.cs
+// Account.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -27,17 +27,17 @@
 //
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Wistia.Core.Data
+namespace Wistia.Core.Models
 {
-    public class Thumbnail
+    #region Imports
+    using System;
+    using System.Linq;
+    #endregion
+
+    public class Account
     {
-        public int height { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
         public string url { get; set; }
-        public int width { get; set; }
     }
 }

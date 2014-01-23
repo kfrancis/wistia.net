@@ -27,7 +27,7 @@
 //
 #endregion
 
-namespace Wistia.Core.Data
+namespace Wistia.Core.Models
 {
     public class SocialBar
     {

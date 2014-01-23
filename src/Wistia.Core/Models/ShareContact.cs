@@ -1,6 +1,6 @@
 #region License, Terms and Conditions
 //
-// WistiaDataClient.cs
+// ShareContact.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -26,30 +26,17 @@
 // DEALINGS IN THE SOFTWARE.
 //
 #endregion
-using System.Net.Http;
-using PortableRest;
-using System;
-using System.Threading.Tasks;
-using Wistia.Core.Data;
 
-namespace Wistia.Core
+namespace Wistia.Core.Models
 {
-    public class WistiaDataClient : WistiaClientBase, IWistiaDataClient
+    public class ShareContact
     {
-        public WistiaDataClient(string apiKey) : base(apiKey)
-        {
-        }
+        public int id { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public async Task<Account> GetAccount()
-        {
-            var request = new RestRequest("account", HttpMethod.Get) { ContentType = ContentTypes.Json };
-            request.AddQueryString("$format", "json");
-            request.AddQueryString("key", ApiKey);
-            return await ExecuteAsync<Account>(request);
-        }
+        public string name { get; set; }
+
+        public string type { get; set; }
+
+        public string email { get; set; }
     }
 }

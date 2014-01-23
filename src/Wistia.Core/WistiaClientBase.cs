@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
+
 #region License, Terms and Conditions
+
 //
 // WistiaClientBase.cs
 //
@@ -30,6 +34,9 @@ using System.Reflection;
 //
 #endregion
 
+using System.Text;
+using System.Text;
+using System.Threading.Tasks;
 using PortableRest;
 
 namespace Wistia.Core
@@ -58,7 +65,7 @@ namespace Wistia.Core
             this.ApiVersion = apiVersion;
 
             // PCL-friendly way to get current version
-            var thisAssembly = typeof(Wistia.Core.WistiaDataClient).Assembly;
+            var thisAssembly = typeof(Wistia.Core.WistiaClient).Assembly;
             var thisAssemblyName = new AssemblyName(thisAssembly.FullName);
             var thisVersion = thisAssemblyName.Version;
 
@@ -76,5 +83,36 @@ namespace Wistia.Core
         {
         }
         #endregion
+        
+        protected Task DeleteRequest(string p, int projectId)
+        {
+            // TODO: Implement this method
+            throw new NotImplementedException();
+        }
+
+        protected Task PutRequest<T, T1>(T project, string p, string hashedId)
+        {
+            // TODO: Implement this method
+            throw new NotImplementedException();
+        }
+
+        protected Task<T> PostRequest<T, T1>(T project, string p)
+        {
+            // TODO: Implement this method
+            throw new NotImplementedException();
+        }
+
+        protected async Task<T> GetRequest<T>(string path, params object[] args) where T : class
+        {
+            var request = new RestRequest(string.Format(path, args), HttpMethod.Get) { ContentType = ContentTypes.Json };
+            SetAuthorization(request);
+            return await ExecuteAsync<T>(request);
+        }
+  
+        private void SetAuthorization(RestRequest request)
+        {
+            var authInfo = Convert.ToBase64String(Encoding.UTF8.GetBytes(string.Format("api:{0}", ApiKey)));
+            request.Headers.Add("Authorization", "Basic " + authInfo);
+        }
     }
 }

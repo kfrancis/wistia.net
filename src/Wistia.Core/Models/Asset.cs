@@ -1,6 +1,6 @@
 ﻿#region License, Terms and Conditions
 //
-// Account.cs
+// Asset.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -27,17 +27,20 @@
 //
 #endregion
 
-namespace Wistia.Core.Data
-{
-    #region Imports
-    using System;
-    using System.Linq;
-    #endregion
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-    public class Account
+namespace Wistia.Core.Models
+{
+    public class Asset
     {
-        public int id { get; set; }
-        public string name { get; set; }
         public string url { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
+        public int fileSize { get; set; }
+        public string contentType { get; set; }
+        public string type { get; set; }
     }
 }

@@ -1,6 +1,6 @@
-#region License, Terms and Conditions
+﻿#region License, Terms and Conditions
 //
-// ShareContact.cs
+// Media.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -27,16 +27,26 @@
 //
 #endregion
 
-namespace Wistia.Core.Data
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Wistia.Core.Models
 {
-    public class ShareContact
+    public class Media
     {
+        public DateTime created { get; set; }
+        public string description { get; set; }
+        public double duration { get; set; }
+        public string hashed_id { get; set; }
         public int id { get; set; }
-
         public string name { get; set; }
-
+        public double progress { get; set; }
+        public string status { get; set; }
+        public Thumbnail thumbnail { get; set; }
         public string type { get; set; }
-
-        public string email { get; set; }
+        public DateTime updated { get; set; }
+        public List<Asset> assets { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿#region License, Terms and Conditions
 //
-// Customization.cs
+// Project.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -32,27 +32,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Wistia.Core.Data
+namespace Wistia.Core.Models
 {
     /// <summary>
-    /// The Customize API lets you configure each video in your account with specific customizations. 
-    /// These customizations will apply to your video both in your account, and wherever you embed it.
-    /// http://wistia.com/doc/data-api#customizations
+    /// Projects are the main organizational objects within Wistia. Media must be stored within Projects.
+    /// http://wistia.com/doc/data-api#projects
     /// </summary>
-    public class Customization
+    public class Project
     {
-        public string version { get; set; }
-        public string playerColor { get; set; }
-        public string stillUrl { get; set; }
-        public string autoPlay { get; set; }
-        public string endVideoBehavior { get; set; }
-        public string playButton { get; set; }
-        public string smallPlayButton { get; set; }
-        public string volumeControl { get; set; }
-        public string fullscreenButton { get; set; }
-        public string playbar { get; set; }
-        public string controlsVisibleOnLoad { get; set; }
-        public string branding { get; set; }
-        public Plugin plugin { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int mediaCount { get; set; }
+        public DateTime created { get; set; }
+        public DateTime updated { get; set; }
+        public string hashedId { get; set; }
+        public bool anonymousCanUpload { get; set; }
+        public bool anonymousCanDownload { get; set; }
+        public bool @public { get; set; }
+        public string publicId { get; set; }
+        public List<Media> medias { get; set; }
     }
 }

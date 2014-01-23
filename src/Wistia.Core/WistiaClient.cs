@@ -1,6 +1,6 @@
-﻿#region License, Terms and Conditions
+#region License, Terms and Conditions
 //
-// Asset.cs
+// WistiaDataClient.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -26,21 +26,27 @@
 // DEALINGS IN THE SOFTWARE.
 //
 #endregion
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http;
 using System.Text;
+using PortableRest;
+using System;
+using System.Threading.Tasks;
+using Wistia.Core.Services;
+using Wistia.Core.Models;
 
-namespace Wistia.Core.Data
+namespace Wistia.Core
 {
-    public class Asset
+    public class WistiaClient
     {
-        public string url { get; set; }
-        public int width { get; set; }
-        public int height { get; set; }
-        public int fileSize { get; set; }
-        public string contentType { get; set; }
-        public string type { get; set; }
+        public WistiaClient(string apiKey)
+        {
+            this.Account = new AccountService(apiKey);
+            this.Projects = new ProjectService(apiKey);
+        }
+
+        #region Accessors
+        public AccountService Account { get; private set; }
+        public ProjectService Projects { get; private set; }
+        #endregion
     }
 }

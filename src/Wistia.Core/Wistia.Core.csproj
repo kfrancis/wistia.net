@@ -48,6 +48,7 @@
     <Compile Include="Models\Thumbnail.cs" />
     <Compile Include="IWistiaDataClient.cs" />
     <Compile Include="IWistiaApiEndpoint.cs" />
+    <Compile Include="Services\MediaService.cs" />
     <Compile Include="Services\ProjectService.cs" />
     <Compile Include="Services\SharingService.cs" />
     <Compile Include="WistiaClientBase.cs" />

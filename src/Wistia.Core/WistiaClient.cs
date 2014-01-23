@@ -33,6 +33,7 @@ using System;
 using System.Threading.Tasks;
 using Wistia.Core;
 using Wistia.Core.Models;
+using Wistia.Core.Services;
 
 namespace Wistia.Core
 {
@@ -45,6 +46,7 @@ namespace Wistia.Core
             this.Account = new AccountService(apiKey);
             this.Projects = new ProjectService(apiKey);
             this.Sharings = new SharingService(apiKey);
+            this.Media = new MediaService(apiKey);
         }
 
         #region Accessors
@@ -60,6 +62,10 @@ namespace Wistia.Core
         /// 
         /// </summary>
         public SharingService Sharings { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public MediaService Media { get; private set; }
         #endregion
     }
 }

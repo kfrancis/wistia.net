@@ -82,6 +82,7 @@
     <Compile Include="ProjectTests.cs" />
     <Compile Include="ClientTests.cs" />
     <Compile Include="SharingTests.cs" />
+    <Compile Include="MediaTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wistia.Core\Wistia.Core.csproj">

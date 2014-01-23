@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Wistia.NET</title>
+    <authors>Kori Francis</authors>
+    <owners>Kori Francis</owners>
+    <licenseUrl>https://github.com/kfrancis/wistia.net/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/kfrancis/wistia.net</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>.NET wrapper for Wistia's API</description>
+    <copyright>Copyright 2014</copyright>
+    <tags>wistia portablerest video</tags>
+  </metadata>
+</package>

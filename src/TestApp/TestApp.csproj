@@ -62,8 +62,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Wistia.Core">
-      <HintPath>..\..\packages\Wistia.Core.1.0.5136.27266\lib\portable-net45+sl50+wp80+win\Wistia.Core.dll</HintPath>
+    <Reference Include="Wistia.Core, Version=1.0.5136.28518, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Wistia.Core.1.0.5136.28518\lib\portable-net45+sl50+wp80+win\Wistia.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

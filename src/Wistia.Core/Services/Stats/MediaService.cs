@@ -11,7 +11,7 @@ namespace Wistia.Core.Services.Stats
 {
     public class MediaService : WistiaClientBase
     {
-        public MediaService(string apiKey) : base(apiKey)
+        public MediaService(string apiKey) : base("stats", apiKey)
         {
         }
 

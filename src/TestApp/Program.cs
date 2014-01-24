@@ -13,7 +13,7 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            Wistia.Core.WistiaClient client = new Wistia.Core.WistiaClient(apiKey: "");
+            Wistia.Core.WistiaDataClient client = new Wistia.Core.WistiaDataClient(apiKey: "");
 
             Console.WriteLine("Here is a listing of your Wistia projects:");
             foreach (var project in client.Projects.All().Result)

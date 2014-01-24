@@ -51,12 +51,12 @@ namespace Wistia.Core.Services.Data.Tests
             // Assert
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(MediaStats));
-            Assert.IsTrue(result.hours_watched > 0);
-            Assert.IsTrue(result.load_count > 0);
-            Assert.IsTrue(result.play_count > 0);
-            Assert.IsTrue(result.engagement > 0);
-            Assert.IsTrue(result.visitors > 0);
-            Assert.IsTrue(result.play_rate > 0);
+            Assert.IsTrue(result.hours_watched >= 0);
+            Assert.IsTrue(result.load_count >= 0);
+            Assert.IsTrue(result.play_count >= 0);
+            Assert.IsTrue(result.engagement >= 0);
+            Assert.IsTrue(result.visitors >= 0);
+            Assert.IsTrue(result.play_rate >= 0);
         }
     }
 }

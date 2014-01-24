@@ -67,10 +67,10 @@ namespace Wistia.Core.Services.Data.Tests
             // Assert
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(ProjectStats));
-            Assert.IsTrue(result.hours_watched > 0);
-            Assert.IsTrue(result.load_count > 0);
-            Assert.IsTrue(result.number_of_videos > 0);
-            Assert.IsTrue(result.play_count > 0);
+            Assert.IsTrue(result.hours_watched >= 0);
+            Assert.IsTrue(result.load_count >= 0);
+            Assert.IsTrue(result.number_of_videos >= 0);
+            Assert.IsTrue(result.play_count >= 0);
         }
 
         [TestMethod]

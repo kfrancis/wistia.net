@@ -32,13 +32,34 @@ using System.Linq;
 
 namespace Wistia.Core.Services.Data.Models
 {
+    /// <summary>
+    /// Asset
+    /// </summary>
     public class Asset
     {
+        /// <summary>
+        /// The asset url
+        /// </summary>
         public string url { get; set; }
+        /// <summary>
+        /// The pixel width of the asset
+        /// </summary>
         public int width { get; set; }
+        /// <summary>
+        /// The pixel height of the asset
+        /// </summary>
         public int height { get; set; }
+        /// <summary>
+        /// The file size (in bytes) of the asset
+        /// </summary>
         public int fileSize { get; set; }
+        /// <summary>
+        /// The type of content
+        /// </summary>
         public string contentType { get; set; }
+        /// <summary>
+        /// The asset type
+        /// </summary>
         public string type { get; set; }
     }
 }

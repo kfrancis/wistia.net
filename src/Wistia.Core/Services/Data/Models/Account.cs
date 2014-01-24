@@ -34,10 +34,22 @@ namespace Wistia.Core.Services.Data.Models
     using System.Linq;
     #endregion
 
+    /// <summary>
+    /// An account
+    /// </summary>
     public class Account
     {
+        /// <summary>
+        /// The id of the account
+        /// </summary>
         public int id { get; set; }
+        /// <summary>
+        /// The name of the account
+        /// </summary>
         public string name { get; set; }
+        /// <summary>
+        /// The url of the wistia account
+        /// </summary>
         public string url { get; set; }
     }
 }

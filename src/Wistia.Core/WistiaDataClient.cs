@@ -34,8 +34,17 @@ using Wistia.Core.Services.Data.Services;
 
 namespace Wistia.Core
 {
-    public class WistiaDataClient
+    /// <summary>
+    /// Wistia is a video hosting solution for marketers. We make it easy to upload, manage, share, and track your web video performance.
+    /// The Wistia data API gives you all kinds of programmatic access to your Wistia account. The data is available in either JSON or XML format over HTTP.
+    /// http://wistia.com/doc/data-api
+    /// </summary>
+    public sealed class WistiaDataClient
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="apiKey">The api key credential</param>
         public WistiaDataClient(string apiKey)
         {
             if (string.IsNullOrWhiteSpace(apiKey)) throw new ArgumentNullException(apiKey);
@@ -48,19 +57,19 @@ namespace Wistia.Core
 
         #region Accessors
         /// <summary>
-        /// 
+        /// An account contains many projects
         /// </summary>
         public AccountService Account { get; private set; }
         /// <summary>
-        /// 
+        /// Projects are the main organizational objects within Wistia. Media must be stored within Projects.
         /// </summary>
         public ProjectService Projects { get; private set; }
         /// <summary>
-        /// 
+        /// A sharing is an object that links either a contact or a contact group to a project, including information about the contacts' permissions to that project.
         /// </summary>
         public SharingService Sharings { get; private set; }
         /// <summary>
-        /// 
+        /// Media are the organizational objects that represent each video within a project.
         /// </summary>
         public MediaService Media { get; private set; }
         #endregion

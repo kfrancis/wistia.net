@@ -39,13 +39,21 @@ using PortableRest;
 namespace Wistia.Core
 {
     /// <summary>
-    /// The base for all Wistia REST Clients in this library. Handles setting the UserAgent.
+    /// The base for all Wistia REST Clients in this library.
     /// </summary>
     public abstract class WistiaClientBase : RestClient
     {
         #region Properties
+        /// <summary>
+        /// This value allows the derivative classes to set the url segment that immediately follows the base url:
+        /// https://api.wistia.com/ + v1 + / (data API url segement)
+        /// https://api.wistia.com/ + v1 + /stats (stats API url segment)
+        /// </summary>
         public string ServiceKey { get; private set; }
 
+        /// <summary>
+        /// The api key credential that allows remote API access
+        /// </summary>
         public string ApiKey { get; private set; }
 
         /// <summary>
@@ -59,6 +67,12 @@ namespace Wistia.Core
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="apiKey">The api key to authorize access to the service</param>
+        /// <param name="apiVersion">The api version key (ie. v1, v2)</param>
+        /// <param name="serviceKey">The url segment that indicates the API service (data, stats, etc)</param>
         public WistiaClientBase(string apiKey, string apiVersion, string serviceKey)
         {
             this.ServiceKey = serviceKey;
@@ -70,39 +84,49 @@ namespace Wistia.Core
             var thisAssemblyName = new AssemblyName(thisAssembly.FullName);
             var thisVersion = thisAssemblyName.Version;
 
-            var prAssembly = typeof(RestRequest).Assembly;
-            var prAssemblyName = new AssemblyName(prAssembly.FullName);
-            var prVersion = prAssemblyName.Version;
+            var portableRestAssembly = typeof(RestRequest).Assembly;
+            var portableRestAssemblyName = new AssemblyName(portableRestAssembly.FullName);
+            var portableRestVersion = portableRestAssemblyName.Version;
 
-            UserAgent = string.Format("Wistia {0} Client for .NET {1} (PortableRest {2})", ApiVersion, thisVersion, prVersion);
+            UserAgent = string.Format("Wistia {0} Client for .NET {1} (PortableRest {2})", ApiVersion, thisVersion, portableRestVersion);
 
             BaseUrl = "https://api.wistia.com/" + ApiVersion;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="serviceKey">The url segment that indicates the API service (data, stats, etc)</param>
+        /// <param name="apiKey">The api key to authorize access to the service</param>
         public WistiaClientBase(string serviceKey, string apiKey) : this(apiKey, "v1", serviceKey)
         {
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="apiKey">The api key to authorize access to the service</param>
         public WistiaClientBase(string apiKey) : this(apiKey, "v1", string.Empty)
         {
         }
         #endregion
-        
+
+        #region Request Methods
         protected Task DeleteRequest(string path, params object[] args)
         {
-            // TODO: Implement this method
+            // TODO: Implement this method, as soon as PortableRest releases PUT/PUT/DELETE support
             throw new NotImplementedException();
         }
 
         protected Task PutRequest<T, T1>(T item, string path, params object[] args)
         {
-            // TODO: Implement this method
+            // TODO: Implement this method, as soon as PortableRest releases PUT/PUT/DELETE support
             throw new NotImplementedException();
         }
 
         protected Task<T> PostRequest<T, T1>(T item, string path)
         {
-            // TODO: Implement this method
+            // TODO: Implement this method, as soon as PortableRest releases PUT/PUT/DELETE support
             throw new NotImplementedException();
         }
 
@@ -112,11 +136,14 @@ namespace Wistia.Core
             SetAuthorization(request);
             return await ExecuteAsync<T>(request);
         }
-  
-        private void SetAuthorization(RestRequest request)
+        #endregion
+
+        #region Helper Methods
+        protected void SetAuthorization(RestRequest request)
         {
             var authInfo = Convert.ToBase64String(Encoding.UTF8.GetBytes(string.Format("api:{0}", ApiKey)));
             request.Headers.Add("Authorization", "Basic " + authInfo);
         }
+        #endregion
     }
 }

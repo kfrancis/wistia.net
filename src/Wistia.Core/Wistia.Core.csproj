@@ -35,25 +35,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Services\AccountService.cs" />
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Asset.cs" />
-    <Compile Include="Models\Customization.cs" />
-    <Compile Include="Models\Media.cs" />
-    <Compile Include="Models\Plugin.cs" />
-    <Compile Include="Models\Project.cs" />
-    <Compile Include="Models\ShareContact.cs" />
-    <Compile Include="Models\Sharing.cs" />
-    <Compile Include="Models\SocialBar.cs" />
-    <Compile Include="Models\Thumbnail.cs" />
-    <Compile Include="IWistiaDataClient.cs" />
+    <Compile Include="IWistiaApiScopedEndpoint.cs" />
+    <Compile Include="Services\Data\AccountService.cs" />
+    <Compile Include="Services\Data\Models\Account.cs" />
+    <Compile Include="Services\Data\Models\Asset.cs" />
+    <Compile Include="Services\Data\Models\Customization.cs" />
+    <Compile Include="Services\Data\Models\Media.cs" />
+    <Compile Include="Services\Data\Models\Plugin.cs" />
+    <Compile Include="Services\Data\Models\Project.cs" />
+    <Compile Include="Services\Data\Models\ShareContact.cs" />
+    <Compile Include="Services\Data\Models\Sharing.cs" />
+    <Compile Include="Services\Data\Models\SocialBar.cs" />
+    <Compile Include="Services\Data\Models\Thumbnail.cs" />
     <Compile Include="IWistiaApiEndpoint.cs" />
-    <Compile Include="Services\MediaService.cs" />
-    <Compile Include="Services\ProjectService.cs" />
-    <Compile Include="Services\SharingService.cs" />
+    <Compile Include="Services\Data\MediaService.cs" />
+    <Compile Include="Services\Data\ProjectService.cs" />
+    <Compile Include="Services\Data\SharingService.cs" />
+    <Compile Include="Services\Stats\AccountService.cs" />
+    <Compile Include="Services\Stats\Models\AccountStats.cs" />
+    <Compile Include="Services\Stats\Models\ProjectStats.cs" />
+    <Compile Include="Services\Stats\ProjectService.cs" />
     <Compile Include="WistiaClientBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WistiaClient.cs" />
+    <Compile Include="WistiaDataClient.cs" />
+    <Compile Include="WistiaStatsClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Threading.Tasks">
@@ -92,6 +97,7 @@
     <None Include="packages.config" />
     <None Include="Wistia.Core.nuspec" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

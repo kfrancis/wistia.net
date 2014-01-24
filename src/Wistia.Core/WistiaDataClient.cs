@@ -1,6 +1,6 @@
-﻿#region License, Terms and Conditions
+#region License, Terms and Conditions
 //
-// Project.cs
+// WistiaDataClient.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -25,32 +25,44 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 //
+
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Wistia.Core.Services.Data;
+using Wistia.Core.Services.Data.Services;
 
-namespace Wistia.Core.Models
+namespace Wistia.Core
 {
-    /// <summary>
-    /// Projects are the main organizational objects within Wistia. Media must be stored within Projects.
-    /// http://wistia.com/doc/data-api#projects
-    /// </summary>
-    public class Project
+    public class WistiaDataClient
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public int mediaCount { get; set; }
-        public DateTime created { get; set; }
-        public DateTime updated { get; set; }
-        public string hashedId { get; set; }
-        public bool anonymousCanUpload { get; set; }
-        public bool anonymousCanDownload { get; set; }
-        public bool @public { get; set; }
-        public string publicId { get; set; }
-        public List<Media> medias { get; set; }
+        public WistiaDataClient(string apiKey)
+        {
+            if (string.IsNullOrWhiteSpace(apiKey)) throw new ArgumentNullException(apiKey);
+
+            this.Account = new AccountService(apiKey);
+            this.Projects = new ProjectService(apiKey);
+            this.Sharings = new SharingService(apiKey);
+            this.Media = new MediaService(apiKey);
+        }
+
+        #region Accessors
+        /// <summary>
+        /// 
+        /// </summary>
+        public AccountService Account { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public ProjectService Projects { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public SharingService Sharings { get; private set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public MediaService Media { get; private set; }
+        #endregion
     }
 }

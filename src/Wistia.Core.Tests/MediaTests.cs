@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Wistia.Core.Models;
+using Wistia.Core.Services.Data.Models;
 
-namespace Wistia.Core.Tests
+namespace Wistia.Core.Services.Data.Tests
 {
     [TestClass]
     public class MediaTests
     {
-        private static WistiaClient _client;
+        private static WistiaDataClient _client;
         private static string _apiKey;
 
         public TestContext TestContext { get; set; }
@@ -19,7 +19,7 @@ namespace Wistia.Core.Tests
         public static void MediaTestsInit(TestContext context)
         {
             _apiKey = ConfigurationManager.AppSettings["ApiKey"];
-            _client = new WistiaClient(_apiKey);
+            _client = new WistiaDataClient(_apiKey);
         }
 
         [TestMethod]

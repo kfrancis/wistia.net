@@ -1,6 +1,6 @@
 ﻿#region License, Terms and Conditions
 //
-// Media.cs
+// Asset.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -28,25 +28,17 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Wistia.Core.Models
+namespace Wistia.Core.Services.Data.Models
 {
-    public class Media
+    public class Asset
     {
-        public DateTime created { get; set; }
-        public string description { get; set; }
-        public double duration { get; set; }
-        public string hashed_id { get; set; }
-        public int id { get; set; }
-        public string name { get; set; }
-        public double progress { get; set; }
-        public string status { get; set; }
-        public Thumbnail thumbnail { get; set; }
+        public string url { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
+        public int fileSize { get; set; }
+        public string contentType { get; set; }
         public string type { get; set; }
-        public DateTime updated { get; set; }
-        public List<Asset> assets { get; set; }
     }
 }

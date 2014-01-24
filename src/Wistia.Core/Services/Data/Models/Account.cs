@@ -1,6 +1,6 @@
 ﻿#region License, Terms and Conditions
 //
-// Customization.cs
+// Account.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -27,32 +27,17 @@
 //
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Wistia.Core.Models
+namespace Wistia.Core.Services.Data.Models
 {
-    /// <summary>
-    /// The Customize API lets you configure each video in your account with specific customizations. 
-    /// These customizations will apply to your video both in your account, and wherever you embed it.
-    /// http://wistia.com/doc/data-api#customizations
-    /// </summary>
-    public class Customization
+    #region Imports
+    using System;
+    using System.Linq;
+    #endregion
+
+    public class Account
     {
-        public string version { get; set; }
-        public string playerColor { get; set; }
-        public string stillUrl { get; set; }
-        public string autoPlay { get; set; }
-        public string endVideoBehavior { get; set; }
-        public string playButton { get; set; }
-        public string smallPlayButton { get; set; }
-        public string volumeControl { get; set; }
-        public string fullscreenButton { get; set; }
-        public string playbar { get; set; }
-        public string controlsVisibleOnLoad { get; set; }
-        public string branding { get; set; }
-        public Plugin plugin { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string url { get; set; }
     }
 }

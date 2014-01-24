@@ -1,6 +1,6 @@
-#region License, Terms and Conditions
+﻿#region License, Terms and Conditions
 //
-// Plugin.cs
+// Project.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -27,11 +27,29 @@
 //
 #endregion
 
-namespace Wistia.Core.Models
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Wistia.Core.Services.Data.Models
 {
-    public class Plugin
+    /// <summary>
+    /// Projects are the main organizational objects within Wistia. Media must be stored within Projects.
+    /// http://wistia.com/doc/data-api#projects
+    /// </summary>
+    public class Project
     {
-        // TODO: Might need to deal with the field name which is socialbar-v1
-        public SocialBar socialbar { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int mediaCount { get; set; }
+        public DateTime created { get; set; }
+        public DateTime updated { get; set; }
+        public string hashedId { get; set; }
+        public bool anonymousCanUpload { get; set; }
+        public bool anonymousCanDownload { get; set; }
+        public bool @public { get; set; }
+        public string publicId { get; set; }
+        public List<Media> medias { get; set; }
     }
 }

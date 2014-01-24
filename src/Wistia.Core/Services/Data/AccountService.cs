@@ -1,13 +1,12 @@
-﻿using System.Net.Http;
-using PortableRest;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Wistia.Core.Models;
+using PortableRest;
+using Wistia.Core.Services.Data.Models;
 
-namespace Wistia.Core
+namespace Wistia.Core.Services.Data
 {
     public class AccountService : WistiaClientBase
     {

@@ -1,6 +1,6 @@
 #region License, Terms and Conditions
 //
-// ShareContact.cs
+// Plugin.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -27,16 +27,11 @@
 //
 #endregion
 
-namespace Wistia.Core.Models
+namespace Wistia.Core.Services.Data.Models
 {
-    public class ShareContact
+    public class Plugin
     {
-        public int id { get; set; }
-
-        public string name { get; set; }
-
-        public string type { get; set; }
-
-        public string email { get; set; }
+        // TODO: Might need to deal with the field name which is socialbar-v1
+        public SocialBar socialbar { get; set; }
     }
 }

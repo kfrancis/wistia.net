@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Reflection;
-
-#region License, Terms and Conditions
+﻿#region License, Terms and Conditions
 
 //
 // WistiaClientBase.cs
@@ -34,7 +28,10 @@ using System.Reflection;
 //
 #endregion
 
-using System.Text;
+using System;
+using System.Linq;
+using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using PortableRest;
@@ -47,7 +44,10 @@ namespace Wistia.Core
     public abstract class WistiaClientBase : RestClient
     {
         #region Properties
+        public string ServiceKey { get; private set; }
+
         public string ApiKey { get; private set; }
+
         /// <summary>
         /// The version of the API to access. This version is typically embedded into the URL of the request, 
         /// although occasionally you can specify it in the header. We support both options.
@@ -59,13 +59,14 @@ namespace Wistia.Core
         #endregion
 
         #region Constructors
-        public WistiaClientBase(string apiKey, string apiVersion)
+        public WistiaClientBase(string apiKey, string apiVersion, string serviceKey)
         {
+            this.ServiceKey = serviceKey;
             this.ApiKey = apiKey;
             this.ApiVersion = apiVersion;
 
             // PCL-friendly way to get current version
-            var thisAssembly = typeof(Wistia.Core.WistiaClient).Assembly;
+            var thisAssembly = typeof(Wistia.Core.WistiaDataClient).Assembly;
             var thisAssemblyName = new AssemblyName(thisAssembly.FullName);
             var thisVersion = thisAssemblyName.Version;
 
@@ -78,8 +79,11 @@ namespace Wistia.Core
             BaseUrl = "https://api.wistia.com/" + ApiVersion;
         }
 
-        public WistiaClientBase(string apiKey)
-            :this(apiKey, "v1")
+        public WistiaClientBase(string serviceKey, string apiKey) : this(apiKey, "v1", serviceKey)
+        {
+        }
+
+        public WistiaClientBase(string apiKey) : this(apiKey, "v1", string.Empty)
         {
         }
         #endregion

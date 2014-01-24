@@ -1,6 +1,6 @@
-﻿#region License, Terms and Conditions
+#region License, Terms and Conditions
 //
-// Account.cs
+// SocialBar.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -27,17 +27,16 @@
 //
 #endregion
 
-namespace Wistia.Core.Models
+namespace Wistia.Core.Services.Data.Models
 {
-    #region Imports
-    using System;
-    using System.Linq;
-    #endregion
-
-    public class Account
+    public class SocialBar
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string url { get; set; }
+        public string buttons { get; set; }
+
+        public string showTweetCount { get; set; }
+
+        public string tweetText { get; set; }
+
+        public string height { get; set; }
     }
 }

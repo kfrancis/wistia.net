@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Wistia.Core.Tests
+namespace Wistia.Core.Services.Data.Tests
 {
     [TestClass]
     public class ClientTests
@@ -11,7 +11,7 @@ namespace Wistia.Core.Tests
         {
             try
             {
-                Wistia.Core.WistiaClient client = new Wistia.Core.WistiaClient(apiKey: "");
+                Wistia.Core.WistiaDataClient client = new Wistia.Core.WistiaDataClient(apiKey: "");
                 Assert.Fail("Expected an exception to be thrown for the blank api key");
             }
             catch (ArgumentNullException argNullEx)

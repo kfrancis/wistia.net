@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Wistia.Core.Models;
+using Wistia.Core.Services.Data.Models;
 
-namespace Wistia.Core.Services
+namespace Wistia.Core.Services.Data.Services
 {
     public class MediaService : WistiaClientBase, IWistiaApiEndpoint<Media>
     {

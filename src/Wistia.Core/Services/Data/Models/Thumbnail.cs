@@ -1,6 +1,6 @@
 ﻿#region License, Terms and Conditions
 //
-// Asset.cs
+// Thumbnail.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -28,19 +28,14 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Wistia.Core.Models
+namespace Wistia.Core.Services.Data.Models
 {
-    public class Asset
+    public class Thumbnail
     {
+        public int height { get; set; }
         public string url { get; set; }
         public int width { get; set; }
-        public int height { get; set; }
-        public int fileSize { get; set; }
-        public string contentType { get; set; }
-        public string type { get; set; }
     }
 }

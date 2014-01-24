@@ -1,6 +1,6 @@
-#region License, Terms and Conditions
+﻿#region License, Terms and Conditions
 //
-// WistiaDataClient.cs
+// Customization.cs
 //
 // Author: Kori Francis <twitter.com/djbyter>
 // Copyright (C) 2014 Kori Francis. All rights reserved.
@@ -26,46 +26,31 @@
 // DEALINGS IN THE SOFTWARE.
 //
 #endregion
-using System.Net.Http;
-using System.Text;
-using PortableRest;
+
 using System;
-using System.Threading.Tasks;
-using Wistia.Core;
-using Wistia.Core.Models;
-using Wistia.Core.Services;
+using System.Linq;
 
-namespace Wistia.Core
+namespace Wistia.Core.Services.Data.Models
 {
-    public class WistiaClient
+    /// <summary>
+    /// The Customize API lets you configure each video in your account with specific customizations. 
+    /// These customizations will apply to your video both in your account, and wherever you embed it.
+    /// http://wistia.com/doc/data-api#customizations
+    /// </summary>
+    public class Customization
     {
-        public WistiaClient(string apiKey)
-        {
-            if (string.IsNullOrWhiteSpace(apiKey)) throw new ArgumentNullException(apiKey);
-
-            this.Account = new AccountService(apiKey);
-            this.Projects = new ProjectService(apiKey);
-            this.Sharings = new SharingService(apiKey);
-            this.Media = new MediaService(apiKey);
-        }
-
-        #region Accessors
-        /// <summary>
-        /// 
-        /// </summary>
-        public AccountService Account { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public ProjectService Projects { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public SharingService Sharings { get; private set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public MediaService Media { get; private set; }
-        #endregion
+        public string version { get; set; }
+        public string playerColor { get; set; }
+        public string stillUrl { get; set; }
+        public string autoPlay { get; set; }
+        public string endVideoBehavior { get; set; }
+        public string playButton { get; set; }
+        public string smallPlayButton { get; set; }
+        public string volumeControl { get; set; }
+        public string fullscreenButton { get; set; }
+        public string playbar { get; set; }
+        public string controlsVisibleOnLoad { get; set; }
+        public string branding { get; set; }
+        public Plugin plugin { get; set; }
     }
 }

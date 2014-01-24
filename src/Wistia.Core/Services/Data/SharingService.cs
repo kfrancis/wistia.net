@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Wistia.Core.Models;
 using System.Threading.Tasks;
+using Wistia.Core.Services.Data.Models;
 
-namespace Wistia.Core
+namespace Wistia.Core.Services.Data
 {
     public class SharingService : WistiaClientBase, IWistiaApiScopedEndpoint<Sharing>
     {

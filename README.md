@@ -20,9 +20,19 @@ Check out the [Unit Tests](https://github.com/kfrancis/wistia.net/tree/master/sr
 View the account details:
 
 ``` c#
-var client = new WistiaClient(apiKey: "123abc");
-var result = client.Account.Get();
+var dataClient = new WistiaDataClient(apiKey: "123abc");
+var result = dataClient.Account.Get();
 ```
+``` c#
+var statsClient = new WistiaStatsClient(apiKey: "123abc");
+var result = statsClient.Account.Get();
+```
+
+Supported Endpoints
+------------
+
+* [Data](http://wistia.com/doc/data-api)
+* [Stats](http://wistia.com/doc/stats-api)
 
 Contributing
 ------------

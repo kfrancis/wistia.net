@@ -72,5 +72,21 @@ namespace Wistia.Core.Services.Data.Tests
             Assert.IsTrue(result.number_of_videos > 0);
             Assert.IsTrue(result.play_count > 0);
         }
+
+        [TestMethod]
+        public async Task CanGetSingleProjectStatsByDate()
+        {
+            // Arrange
+            var projects = await _dataClient.Projects.All();
+            var firstProject = projects.FirstOrDefault();
+
+            // Act
+            var result = await _statsClient.Projects.GetByDate(firstProject.id);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(List<ProjectStats>));
+            Assert.IsTrue(result.Count > 0);
+        }
     }
 }

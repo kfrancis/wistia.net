@@ -13,8 +13,10 @@ namespace Wistia.Core
 
             this.Account = new AccountService(apiKey);
             this.Projects = new ProjectService(apiKey);
+            this.Media = new MediaService(apiKey);
         }
         public AccountService Account { get; private set; }
         public ProjectService Projects { get; private set; }
+        public MediaService Media { get; private set; }
     }
 }

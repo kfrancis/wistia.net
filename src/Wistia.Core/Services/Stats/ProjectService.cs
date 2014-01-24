@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -20,6 +21,14 @@ namespace Wistia.Core.Services.Stats
             var authInfo = Convert.ToBase64String(Encoding.UTF8.GetBytes(string.Format("api:{0}", ApiKey)));
             request.Headers.Add("Authorization", "Basic " + authInfo);
             return await ExecuteAsync<ProjectStats>(request);
+        }
+
+        public async Task<List<ProjectStats>> GetByDate(int projectId)
+        {
+            var request = new RestRequest(this.ServiceKey + string.Format("/projects/{0}/by_date.json", projectId), HttpMethod.Get) { ContentType = ContentTypes.Json };
+            var authInfo = Convert.ToBase64String(Encoding.UTF8.GetBytes(string.Format("api:{0}", ApiKey)));
+            request.Headers.Add("Authorization", "Basic " + authInfo);
+            return await ExecuteAsync<List<ProjectStats>>(request);
         }
     }
 }

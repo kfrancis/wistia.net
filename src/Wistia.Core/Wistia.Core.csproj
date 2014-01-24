@@ -52,7 +52,9 @@
     <Compile Include="Services\Data\ProjectService.cs" />
     <Compile Include="Services\Data\SharingService.cs" />
     <Compile Include="Services\Stats\AccountService.cs" />
+    <Compile Include="Services\Stats\MediaService.cs" />
     <Compile Include="Services\Stats\Models\AccountStats.cs" />
+    <Compile Include="Services\Stats\Models\MediaStats.cs" />
     <Compile Include="Services\Stats\Models\ProjectStats.cs" />
     <Compile Include="Services\Stats\ProjectService.cs" />
     <Compile Include="WistiaClientBase.cs" />

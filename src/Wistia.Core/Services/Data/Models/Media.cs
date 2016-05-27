@@ -47,5 +47,6 @@ namespace Wistia.Core.Services.Data.Models
         public string type { get; set; }
         public DateTime updated { get; set; }
         public List<Asset> assets { get; set; }
+        public string section { get; set; }
     }
 }

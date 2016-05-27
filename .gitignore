@@ -152,3 +152,4 @@ $RECYCLE.BIN/
 
 /src/Wistia.Core.Tests/HiddenSettings.config
 /.JustCode/Wistia.NET.solution-user.settings.xml
+*.bat

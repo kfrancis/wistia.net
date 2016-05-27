@@ -41,6 +41,7 @@ namespace Wistia.Core
     /// <summary>
     /// The base for all Wistia REST Clients in this library.
     /// </summary>
+    /// <remarks>test</remarks>
     public abstract class WistiaClientBase : RestClient
     {
         #region Properties
@@ -80,7 +81,7 @@ namespace Wistia.Core
             this.ApiVersion = apiVersion;
 
             // PCL-friendly way to get current version
-            var thisAssembly = typeof(Wistia.Core.WistiaDataClient).Assembly;
+            var thisAssembly = typeof(WistiaDataClient).Assembly;
             var thisAssemblyName = new AssemblyName(thisAssembly.FullName);
             var thisVersion = thisAssemblyName.Version;
 

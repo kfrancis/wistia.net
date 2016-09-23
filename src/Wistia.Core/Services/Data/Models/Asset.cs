@@ -52,7 +52,7 @@ namespace Wistia.Core.Services.Data.Models
         /// <summary>
         /// The file size (in bytes) of the asset
         /// </summary>
-        public int fileSize { get; set; }
+        public long fileSize { get; set; }
         /// <summary>
         /// The type of content
         /// </summary>

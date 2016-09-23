@@ -29,7 +29,6 @@
 #endregion
 
 using System;
-using System.Linq;
 
 namespace Wistia.Core.Services.Stats.Models
 {

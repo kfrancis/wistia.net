@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Wistia.Core.Services.Data.Models;
 using Wistia.Core.Services.Stats.Models;
 
-namespace Wistia.Core.Services.Data.Tests
+namespace Wistia.Core.Tests
 {
     [TestClass]
     public class ProjectTests
@@ -44,6 +43,7 @@ namespace Wistia.Core.Services.Data.Tests
             // Arrange
             var projects = await _dataClient.Projects.All();
             var firstProject = projects.FirstOrDefault();
+            Assert.IsNotNull(firstProject);
 
             // Act
             var result = await _dataClient.Projects.GetById(firstProject.hashedId);
@@ -60,6 +60,7 @@ namespace Wistia.Core.Services.Data.Tests
             // Arrange
             var projects = await _dataClient.Projects.All();
             var firstProject = projects.FirstOrDefault();
+            Assert.IsNotNull(firstProject);
 
             // Act
             var result = await _statsClient.Projects.Get(firstProject.id);
@@ -79,6 +80,7 @@ namespace Wistia.Core.Services.Data.Tests
             // Arrange
             var projects = await _dataClient.Projects.All();
             var firstProject = projects.FirstOrDefault();
+            Assert.IsNotNull(firstProject);
 
             // Act
             var result = await _statsClient.Projects.GetByDate(firstProject.id);

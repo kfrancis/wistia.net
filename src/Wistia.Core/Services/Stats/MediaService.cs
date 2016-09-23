@@ -28,11 +28,8 @@
 //
 #endregion
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using PortableRest;
 using Wistia.Core.Services.Stats.Models;
@@ -55,11 +52,11 @@ namespace Wistia.Core.Services.Stats
         /// <summary>
         /// Get the statistics for a single piece of media
         /// </summary>
-        /// <param name="projectId">The id of the media object</param>
+        /// <param name="mediaId">The id of the media object</param>
         /// <returns>The media stats</returns>
         public async Task<MediaStats> Get(int mediaId)
         {
-            var request = new RestRequest(this.ServiceKey + string.Format("/medias/{0}.json", mediaId), HttpMethod.Get) { ContentType = ContentTypes.Json };
+            var request = new RestRequest(ServiceKey + $"/medias/{mediaId}.json", HttpMethod.Get) { ContentType = ContentTypes.Json };
             SetAuthorization(request);
             return await ExecuteAsync<MediaStats>(request);
         }
@@ -67,11 +64,11 @@ namespace Wistia.Core.Services.Stats
         /// <summary>
         /// Get the statistics for a single piece of media by date
         /// </summary>
-        /// <param name="projectId">The id of the media object</param>
+        /// <param name="mediaId">The id of the media object</param>
         /// <returns>The list of media stats ordered by date</returns>
         public async Task<List<MediaStats>> GetByDate(int mediaId)
         {
-            var request = new RestRequest(this.ServiceKey + string.Format("/medias/{0}/by_date.json", mediaId), HttpMethod.Get) { ContentType = ContentTypes.Json };
+            var request = new RestRequest(ServiceKey + $"/medias/{mediaId}/by_date.json", HttpMethod.Get) { ContentType = ContentTypes.Json };
             SetAuthorization(request);
             return await ExecuteAsync<List<MediaStats>>(request);
         }

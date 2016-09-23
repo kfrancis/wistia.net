@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestApp
 {
@@ -11,6 +7,7 @@ namespace TestApp
     /// </summary>
     class Program
     {
+        // ReSharper disable once UnusedParameter.Local
         static void Main(string[] args)
         {
             Wistia.Core.WistiaDataClient client = new Wistia.Core.WistiaDataClient(apiKey: "");

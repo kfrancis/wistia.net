@@ -30,8 +30,9 @@
 namespace Wistia.Core.Services.Data.Models
 {
     #region Imports
-    using System;
-    using System.Linq;
+
+    
+
     #endregion
 
     /// <summary>

@@ -30,7 +30,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,7 +58,7 @@ namespace Wistia.Core.Services.Stats
         /// <returns>The project stats</returns>
         public async Task<ProjectStats> Get(int projectId)
         {
-            var request = new RestRequest(this.ServiceKey + string.Format("/projects/{0}.json", projectId), HttpMethod.Get) { ContentType = ContentTypes.Json };
+            var request = new RestRequest(ServiceKey + string.Format("/projects/{0}.json", projectId), HttpMethod.Get) { ContentType = ContentTypes.Json };
             var authInfo = Convert.ToBase64String(Encoding.UTF8.GetBytes(string.Format("api:{0}", ApiKey)));
             request.Headers.Add("Authorization", "Basic " + authInfo);
             return await ExecuteAsync<ProjectStats>(request);
@@ -72,7 +71,7 @@ namespace Wistia.Core.Services.Stats
         /// <returns>The list of project stats ordered by date</returns>
         public async Task<List<ProjectStats>> GetByDate(int projectId)
         {
-            var request = new RestRequest(this.ServiceKey + string.Format("/projects/{0}/by_date.json", projectId), HttpMethod.Get) { ContentType = ContentTypes.Json };
+            var request = new RestRequest(ServiceKey + string.Format("/projects/{0}/by_date.json", projectId), HttpMethod.Get) { ContentType = ContentTypes.Json };
             var authInfo = Convert.ToBase64String(Encoding.UTF8.GetBytes(string.Format("api:{0}", ApiKey)));
             request.Headers.Add("Authorization", "Basic " + authInfo);
             return await ExecuteAsync<List<ProjectStats>>(request);

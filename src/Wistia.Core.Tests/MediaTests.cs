@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Wistia.Core.Services.Data.Models;
 using Wistia.Core.Services.Stats.Models;
 
-namespace Wistia.Core.Services.Data.Tests
+namespace Wistia.Core.Tests
 {
     [TestClass]
     public class MediaTests
@@ -44,6 +43,7 @@ namespace Wistia.Core.Services.Data.Tests
             // Arrange
             var media = await _dataClient.Media.All();
             var firstMedia = media.FirstOrDefault();
+            Assert.IsNotNull(firstMedia);
 
             // Act
             var result = await _statsClient.Media.Get(firstMedia.id);

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Wistia.Core.Services.Data.Models;
 using Wistia.Core.Services.Stats.Models;
 
-namespace Wistia.Core.Services.Data.Tests
+namespace Wistia.Core.Tests
 {
     [TestClass]
     public class AccountTests

@@ -30,7 +30,6 @@
 
 using System;
 using Wistia.Core.Services.Data;
-using Wistia.Core.Services.Data.Services;
 
 namespace Wistia.Core
 {
@@ -49,10 +48,10 @@ namespace Wistia.Core
         {
             if (string.IsNullOrWhiteSpace(apiKey)) throw new ArgumentNullException(apiKey);
 
-            this.Account = new AccountService(apiKey);
-            this.Projects = new ProjectService(apiKey);
-            this.Sharings = new SharingService(apiKey);
-            this.Media = new MediaService(apiKey);
+            Account = new AccountService(apiKey);
+            Projects = new ProjectService(apiKey);
+            Sharings = new SharingService(apiKey);
+            Media = new MediaService(apiKey);
         }
 
         #region Accessors

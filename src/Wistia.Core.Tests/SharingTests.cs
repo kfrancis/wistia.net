@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Wistia.Core.Services.Data.Models;
 
-namespace Wistia.Core.Services.Data.Tests
+namespace Wistia.Core.Tests
 {
     [TestClass]
     public class SharingTests
@@ -26,9 +25,12 @@ namespace Wistia.Core.Services.Data.Tests
         [TestMethod]
         public async Task CanGetListOfSharings()
         {
-            // Act
+            // Arrange
             var projects = await _client.Projects.All();
             var firstProject = projects.FirstOrDefault();
+            Assert.IsNotNull(firstProject);
+
+            // Act
             var result = await _client.Sharings.All(firstProject.hashedId);
 
             // Assert
@@ -43,15 +45,19 @@ namespace Wistia.Core.Services.Data.Tests
             // Arrange
             var projects = await _client.Projects.All();
             var firstProject = projects.FirstOrDefault();
+            Assert.IsNotNull(firstProject);
             var projectSharings = await _client.Sharings.All(firstProject.hashedId);
+            Assert.IsNotNull(projectSharings);
+            var firstProjectSharings = projectSharings.FirstOrDefault();
+            Assert.IsNotNull(firstProjectSharings);
 
             // Act
-            var result = await _client.Sharings.GetById(firstProject.hashedId, projectSharings.FirstOrDefault().id.ToString());
+            var result = await _client.Sharings.GetById(firstProject.hashedId, firstProjectSharings.id.ToString());
 
             // Assert
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(Sharing));
-            Assert.AreEqual(projectSharings.FirstOrDefault().id, result.id);
+            Assert.AreEqual(firstProjectSharings.id, result.id);
         }
     }
 }

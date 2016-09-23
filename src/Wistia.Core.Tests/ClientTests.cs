@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Wistia.Core.Services.Data.Tests
+namespace Wistia.Core.Tests
 {
     [TestClass]
     public class ClientTests
@@ -11,14 +11,15 @@ namespace Wistia.Core.Services.Data.Tests
         {
             try
             {
-                Wistia.Core.WistiaDataClient client = new Wistia.Core.WistiaDataClient(apiKey: "");
+                // ReSharper disable once ObjectCreationAsStatement
+                new WistiaDataClient(apiKey: "");
                 Assert.Fail("Expected an exception to be thrown for the blank api key");
             }
             catch (ArgumentNullException argNullEx)
             {
                 Assert.IsNotNull(argNullEx);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Assert.Fail("Expected an ArgumentNullException");
             }

@@ -29,12 +29,13 @@
 #endregion
 
 using System;
-using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using PortableRest;
+// ReSharper disable UnusedParameter.Global
+// ReSharper disable UnusedTypeParameter
 
 namespace Wistia.Core
 {
@@ -76,9 +77,9 @@ namespace Wistia.Core
         /// <param name="serviceKey">The url segment that indicates the API service (data, stats, etc)</param>
         public WistiaClientBase(string apiKey, string apiVersion, string serviceKey)
         {
-            this.ServiceKey = serviceKey;
-            this.ApiKey = apiKey;
-            this.ApiVersion = apiVersion;
+            ServiceKey = serviceKey;
+            ApiKey = apiKey;
+            ApiVersion = apiVersion;
 
             // PCL-friendly way to get current version
             var thisAssembly = typeof(WistiaDataClient).Assembly;

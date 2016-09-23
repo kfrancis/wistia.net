@@ -28,13 +28,11 @@
 //
 #endregion
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Wistia.Core.Services.Data.Models;
 
-namespace Wistia.Core.Services.Data.Services
+namespace Wistia.Core.Services.Data
 {
     public class MediaService : WistiaClientBase, IWistiaApiEndpoint<Media>
     {

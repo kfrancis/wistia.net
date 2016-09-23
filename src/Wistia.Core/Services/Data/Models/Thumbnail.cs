@@ -27,9 +27,6 @@
 //
 #endregion
 
-using System;
-using System.Linq;
-
 namespace Wistia.Core.Services.Data.Models
 {
     public class Thumbnail

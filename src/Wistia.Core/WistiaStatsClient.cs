@@ -29,7 +29,6 @@
 #endregion
 
 using System;
-using System.Linq;
 using Wistia.Core.Services.Stats;
 
 namespace Wistia.Core
@@ -52,9 +51,9 @@ namespace Wistia.Core
         {
             if (string.IsNullOrWhiteSpace(apiKey)) throw new ArgumentNullException(apiKey);
 
-            this.Account = new AccountService(apiKey);
-            this.Projects = new ProjectService(apiKey);
-            this.Media = new MediaService(apiKey);
+            Account = new AccountService(apiKey);
+            Projects = new ProjectService(apiKey);
+            Media = new MediaService(apiKey);
         }
         #endregion
 

@@ -28,8 +28,6 @@
 //
 #endregion
 
-using System;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using PortableRest;
@@ -56,7 +54,7 @@ namespace Wistia.Core.Services.Stats
         /// <returns></returns>
         public async Task<AccountStats> Get()
         {
-            var request = new RestRequest(this.ServiceKey + "/account.json", HttpMethod.Get) { ContentType = ContentTypes.Json };
+            var request = new RestRequest(ServiceKey + "/account.json", HttpMethod.Get) { ContentType = ContentTypes.Json };
             SetAuthorization(request);
             return await ExecuteAsync<AccountStats>(request);
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,6 +24,17 @@ namespace Wistia.Core.Tests
             _apiKey = ConfigurationManager.AppSettings["ApiKey"];
             _dataClient = new WistiaDataClient(_apiKey);
             _statsClient = new WistiaStatsClient(_apiKey);
+        }
+
+        [TestMethod]
+        public async Task CanGetSearchStats()
+        {
+            // Act
+            var result = await _statsClient.Visitor.GetBySearchTerm("term");
+            
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ICollection<VisitorStats>));
         }
 
         [TestMethod]

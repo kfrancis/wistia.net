@@ -54,6 +54,7 @@ namespace Wistia.Core
             Account = new AccountService(apiKey);
             Projects = new ProjectService(apiKey);
             Media = new MediaService(apiKey);
+            Visitor = new VisitorService(apiKey);
         }
         #endregion
 
@@ -70,6 +71,10 @@ namespace Wistia.Core
         /// Media are the organizational objects that represent each video within a project.
         /// </summary>
         public MediaService Media { get; private set; }
+        /// <summary>
+        /// Visitor are the objects that represent each visitor that consumes the content.
+        /// </summary>
+        public VisitorService Visitor { get; private set; }
         #endregion
     }
 }

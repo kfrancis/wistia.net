@@ -58,8 +58,10 @@
     <Compile Include="Services\Stats\MediaService.cs" />
     <Compile Include="Services\Stats\Models\AccountStats.cs" />
     <Compile Include="Services\Stats\Models\MediaStats.cs" />
+    <Compile Include="Services\Stats\Models\VisitorStats.cs" />
     <Compile Include="Services\Stats\Models\ProjectStats.cs" />
     <Compile Include="Services\Stats\ProjectService.cs" />
+    <Compile Include="Services\Stats\VisitorService.cs" />
     <Compile Include="WistiaClientBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WistiaDataClient.cs" />

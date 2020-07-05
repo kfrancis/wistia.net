@@ -30,11 +30,25 @@ namespace Wistia.Core.Tests
         public async Task CanGetSearchStats()
         {
             // Act
-            var result = await _statsClient.Visitor.GetBySearchTerm("term");
-            
+            var results = await _statsClient.Visitor.GetBySearchTerm("ceo@myrenatus.com");
+            var events = new List<VisitorStatEvent>();
+            foreach (var result in results)
+            {
+                var _events = await _statsClient.Visitor.GetVisitoryEvents(result.VisitorKey);
+                foreach (var _event in _events)
+                {
+                    var _detail = await _statsClient.Visitor.GetVisitoryEventDetails(_event.EventKey);
+                    _event.Detail = _detail;
+                    events.Add(_event);
+                }
+            }
+
             // Assert
-            Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(ICollection<VisitorStats>));
+            Assert.IsNotNull(results);
+            Assert.IsInstanceOfType(results, typeof(ICollection<VisitorStat>));
+            
+            Assert.IsNotNull(events);
+            Assert.IsInstanceOfType(events, typeof(ICollection<VisitorStatEvent>));
         }
 
         [TestMethod]

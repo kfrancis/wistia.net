@@ -87,6 +87,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AccountTests.cs" />
+    <None Include="HiddenSettings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProjectTests.cs" />
     <Compile Include="ClientTests.cs" />
@@ -103,9 +106,6 @@
     <None Include="app.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="HiddenSettings.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

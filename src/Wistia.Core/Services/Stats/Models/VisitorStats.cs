@@ -34,35 +34,6 @@ using Newtonsoft.Json;
 
 namespace Wistia.Core.Services.Stats.Models
 {
-    public class VisitorStats
-    {
-        public string visitor_key { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime last_active_at { get; set; }
-        public string last_event_key { get; set; }
-        public int load_count { get; set; }
-        public int play_count { get; set; }
-        public string identifying_event_key { get; set; }
-        public VisitorIdentityStats visitor_identity { get; set; }
-        public VisitorUserAgentStats user_agent_details { get; set; }
-        public string viewing_url => $"https://myrenatus.wistia.com/stats/viewer/{visitor_key}";
-    }
-
-    public class VisitorIdentityStats
-    {
-        public string name { get; set; }
-        public string email { get; set; }
-    }
-
-    public class VisitorUserAgentStats
-    {
-        public string browser { get; set; }
-        public string browser_version { get; set; }
-        public string platform { get; set; }
-        public bool mobile { get; set; }
-    }
-    
-
     public partial class Org
     {
 
